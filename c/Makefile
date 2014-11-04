@@ -1,14 +1,6 @@
-.PHONY: run
+execAddVector: addVector
+	./addVectorThread
 
-run: addVector
-	time ./addVector
-
-joclinfo: addVector
-	./addVector
-
-ocl_info: OCLInfo.c
-	gcc -l OpenCL -I /opt/intel/opencl/include/ OCLInfo.c -o ocl_info 
-
-addVector: FIP2AddVectorTP1.c
-	gcc -l OpenCL -I /opt/intel/opencl/include/ FIP2AddVectorTP1.c -o addVector
+addVector: addVectorThread.c
+	gcc -O3 -lpthread -l OpenCL -I /opt/intel/opencl/include/ addVectorThread.c -o addVectorThread
 
