@@ -46,7 +46,7 @@ int main(int argc, char** argv){
     verif = nanoTime();
     for(i = 0 ; i < N; i++){
       if(1.0 != c[i]){
-perror("Error during verification\n");
+        perror("Error during verification\n");
       }
     }
     printf("verification : %s\n", displayTimeFormat(nanoTime()-verif));
